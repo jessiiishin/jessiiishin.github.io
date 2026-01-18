@@ -12,18 +12,26 @@ function Home() {
         <section className="projects-section">
           <h2 className="subtitle">Projects</h2>
           <div className="projects-list">
-            <a href="">ChewCheck</a>
-            <a href="https://devpost.com/software/carbonchain-m2hxz4">CarbonChain</a>
-            <a href="https://brownrisdgames.itch.io/mosquito-simulator">Mosquito Simulator</a>
-            <a href="https://github.com/jessiiishin/workflow">WorkFlow</a>
-            <a href="https://project-brown-mock-trial.vercel.app/join-us">Brown Mock Trials (Join Us)</a>
+            <p>ChewCheck (in progress)</p>
+            <a href="https://devpost.com/software/carbonchain-m2hxz4"
+              target="blank" rel="noopener noreferrer">CarbonChain</a>
+            <a href="https://brownrisdgames.itch.io/mosquito-simulator"
+              target="blank" rel="noopener noreferrer">Mosquito Simulator</a>
+            <a href="https://project-brown-mock-trial.vercel.app/join-us"
+              target="blank" rel="noopener noreferrer">Brown Mock Trials (Join Us)</a>
+            <a href="https://github.com/jessiiishin/workflow"
+              target="blank" rel="noopener noreferrer">WorkFlow</a>
           </div>
         </section>
         <section>
           <h2 className="subtitle">Links</h2>
           <div className="projects-list">
-            <a href="https://docs.google.com/document/d/1KBAzdjLaOonfQr8kIbvjmU9exbH0lm-R-dvGjQA1cuE/edit?usp=sharing">Resume</a>
-            <a href="http://github.com/jessiiishin">Github</a>
+            <a href="https://docs.google.com/document/d/1KBAzdjLaOonfQr8kIbvjmU9exbH0lm-R-dvGjQA1cuE/edit?usp=sharing"
+              target="blank" rel="noopener noreferrer">Resume</a>
+            <a href="http://github.com/jessiiishin"
+              target="blank" rel="noopener noreferrer">Github</a>
+            <a href="https://www.linkedin.com/in/jessi-shin-974b00328/"
+              target="blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </section>
       </main>
