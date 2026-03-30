@@ -11,11 +11,17 @@
     font-size: 1.2rem;
 }
 
-.projects-list {
+.section-header {
     display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 0.15rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-betweens;
+}
+
+.project-cards-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 1rem;
     margin-bottom: 2rem;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './home.css'
 
-function Home() {
+function HomeOld() {
   return (
     <div className="home-container">
       <header className="header">
@@ -38,5 +38,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
