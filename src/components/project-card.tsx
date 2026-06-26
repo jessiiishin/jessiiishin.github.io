@@ -16,7 +16,7 @@ export default function ProjectCard(props: ProjectCardProps) {
     return (
         <div className="project-card-wrapper">
             <img src={props.img} alt={props.title} />
-            <h3 >{props.title}</h3>
+            <h3>{props.title}</h3>
             <p>{props.desc}</p>
             <div className="project-card-tags">
                 {props.tags.map((tag) => (
