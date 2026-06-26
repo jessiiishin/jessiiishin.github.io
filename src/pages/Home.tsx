@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import MenuBar from './MenuBar';
 import ProjectCard, { ProjectCardProps } from '../components/project-card';
-import './home.css'
 
 const defaultProject: ProjectCardProps = {
   title: "Amazing Project",
@@ -12,7 +11,7 @@ const defaultProject: ProjectCardProps = {
 
 export default function Home() {
     return (
-    <div className="home-container">
+    <div className="flex flex-col px-32 py-16">
       <header>
         <MenuBar/>
       </header>
@@ -20,46 +19,46 @@ export default function Home() {
       <section className="hero">
         <h1>JESSI <br/> SHIN</h1>
         <p>
-          {`Hi, I'm a`} <strong>software engineer</strong> 
+          {`Hi, I'm a`} <strong>software engineer</strong>
           {`who loves creating software that `}
-          <span className="hero-accent">feels good</span> 
+          <span className="text-accent">feels good</span>
           {`and `}
-          <span className="hero-accent">works like magic.</span>
+          <span className="text-accent">works like magic.</span>
         </p>
       </section>
-      
+
       <section>
-        <div className="section-header">
+        <div className="flex flex-row items-center justify-between">
           <h2>featured projects</h2>
-          <a href="/projects" className="view-all-projects-link">view all</a>
+          <a href="/projects">view all</a>
         </div>
-        <div className="project-cards-list">
+        <div className="mt-4 mb-8 flex flex-row gap-6">
           <ProjectCard {...defaultProject} />
           <ProjectCard {...defaultProject} />
           <ProjectCard {...defaultProject} />
         </div>
       </section>
 
-      <section className="education-experience">
+      <section className="flex flex-row gap-16">
         <section>
-          <div className="section-header">
-            <h2>education</h2> 
+          <div className="flex flex-row items-center justify-between">
+            <h2>education</h2>
           </div>
-          <div className="edu-exp-list">
+          <div>
             brown university
           </div>
         </section>
 
         <section>
-          <div className="section-header">
+          <div className="flex flex-row items-center justify-between">
             <h2>experience</h2>
           </div>
-          <div className="edu-exp-list">
+          <div>
             brgd, fsab
           </div>
         </section>
       </section>
-      
+
       <footer>
         have you ever had a dream... you uhh.. once uhh
       </footer>

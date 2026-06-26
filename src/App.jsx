@@ -1,7 +1,6 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from './pages/Home.tsx';
 import Projects from './pages/Projects.tsx';
-import './App.css'
 
 function App() {
   return (

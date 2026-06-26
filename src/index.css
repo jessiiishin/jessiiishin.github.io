@@ -1,42 +1,47 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import "tailwindcss";
+
+/*
+  Design tokens.
+  Everything defined here is available two ways:
+    - as a CSS variable:  var(--color-primary)
+    - as a utility class:  text-primary, bg-primary, font-display, etc.
+  Add or edit tokens here and they propagate everywhere.
+*/
+@theme {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-primary: #292978;
+  --color-accent: #df64b2;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Rubik", ui-sans-serif, system-ui, sans-serif;
 }
 
-:root {
-  --background-color: #fff;
-  --primary: #292978;
-  --accent: #DF64B2;
+/* Base element defaults (Tailwind's preflight handles the reset) */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    text-align: left;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
 }
-
-
-/* Inter regular: 400, medium 500, semibold 600 */
-
-a {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--primary);
-  text-align: left;
-}
-
-h1 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
-  color: var(--primary);
-  text-align: left;
-}
-
-h2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: var(--primary);
-  text-align: left;
-}
-
