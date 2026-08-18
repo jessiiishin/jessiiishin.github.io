@@ -18,11 +18,11 @@ export default function MenuBar() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="flex items-center justify-between py-10">
+    <nav className="flex items-center justify-between py-6 lg:py-10">
       <Link to="/" className="block h-[30px]">
         <img src={imgLogo} alt="Jessi Shin logo" className="block h-[30px] w-auto" />
       </Link>
-      <ul className="flex items-center gap-[76px]">
+      <ul className="flex items-center gap-6 md:gap-12 lg:gap-[76px]">
         {navItems.map(({ label, to }) => {
           const active = pathname === to;
           return (
