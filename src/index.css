@@ -12,6 +12,8 @@
   --color-background: #ffffff;
   --color-primary: #292978;
   --color-accent: #df64b2;
+  --color-tag-tech: #d5edff;
+  --color-tag-gray: #eaeafb;
 
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;

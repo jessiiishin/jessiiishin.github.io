@@ -1,41 +1,26 @@
 import { Link } from 'react-router-dom';
 import MenuBar from './MenuBar';
 import Section from '../components/section';
-import ProjectCard, { ProjectCardProps } from '../components/project-card';
+import ProjectGrid from '../components/project-grid';
 import EntryCard, { EntryCardProps } from '../components/entry-card';
 import ContactList, { Contact } from '../components/contact-list';
 import Footer from '../components/footer';
+import { featuredProjects } from '../data-utils/projects-inventory';
+import brownLogo from '../assets/logos/brown-logo.png';
+import brgdLogo from '../assets/logos/brgd-logo.jpg';
+import fsabLogo from '../assets/logos/fsab-logo.jpg';
+import acelabLogo from '../assets/logos/acelab-logo.jpg';
 
 /*
   Home page contents
 */
-
-const featuredProjects: ProjectCardProps[] = [
-  {
-    title: 'CarbonChain',
-    desc: 'Offset your carbon footprint, know where your money is going.',
-    tags: ['TypeScript', 'React', 'Solidity'],
-    date: 2025,
-  },
-  {
-    title: 'ChewCheck',
-    desc: 'Mobile application that identifies plants using the device camera and quickly determines whether they are safe for your pets.',
-    tags: ['TypeScript', 'React Native', 'Expo', 'Firebase'],
-    date: 2025,
-  },
-  {
-    title: 'Munchy Munchy',
-    desc: 'Generate food tiers (best, decent) in cities of your choice, personalized by budget, time, and food preferences.',
-    tags: ['TypeScript', 'React', 'HTML', 'Firebase'],
-    date: 2025,
-  },
-];
 
 const education: EntryCardProps[] = [
   {
     org: 'Brown University',
     role: 'S.c.B. Computer Science, A.B. Visual Art',
     date: 'Sep 2024 - Present',
+    icon: brownLogo,
     points: [
       'Cumulative GPA (estimated): 4.00',
       'Relevant Coursework:',
@@ -46,15 +31,24 @@ const education: EntryCardProps[] = [
 
 const experience: EntryCardProps[] = [
   {
+    org: 'Acelab',
+    role: 'AI/Engineering Intern',
+    date: 'Jun 2026 - Aug 2026',
+    icon: acelabLogo,
+    desc: 'Built core features for Smart Docs, a Figma-style browser-based document editor that extended Fabric.js with custom canvas elements, rich-text editing, formatting toolbars, and document management workflows using Vue. Developed the synchronization layer and database migrations connecting a Cloudflare Durable Object with PostgreSQL, enabling document persistence, version history, and concurrent collaboration. Audited the design system by cataloging components across the codebase and Figma, identifying inconsistencies and standardizing implementation between design and engineering. Implemented full-stack bug fixes shipped in weekly production releases, iterating on product features from customer feedback while collaborating in bi-weekly Agile sprints.'
+  },
+  {
     org: 'Brown RISD Game Developers',
     role: 'Executive Board Member, Producer, Game Developer',
     date: 'Sep 2024 - Present',
+    icon: brgdLogo,
     desc: 'Lead cross-functional collaborative development and design of small-scale video games each semester from scratch using game engines like Godot, publishing 7-8 games each year as a club. Oversee weekly sprint meetings and organize events, manage development timelines. Streamline workflow and communication between interdisciplinary teams of artists, programmers, and sound.',
   },
   {
     org: 'Full Stack at Brown',
     role: 'Full Stack Web Developer',
     date: 'Sep 2025 - Present',
+    icon: fsabLogo,
     desc: 'Implement a full-stack website every semester, contributing to an end-to-end development workflow. Collaborate with a cross-functional team to design and develop full-stack websites for organizations at Brown University using React, TypeScript, and HTML/CSS. Build responsive, maintainable UI components and clean, modular code.',
   },
 ];
@@ -88,34 +82,26 @@ export default function Home() {
           title="featured projects"
           action={<Link to="/projects">view all projects →</Link>}
         >
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+          <ProjectGrid projects={featuredProjects} />
+        </Section>
+
+        <Section title="education" className="flex-1">
+          <div className="flex flex-col gap-8">
+            {education.map((entry) => (
+              <EntryCard key={entry.org} {...entry} />
             ))}
           </div>
         </Section>
 
-        {/* Stacked on mobile/tablet (experience first, per the design);
-            two columns side by side on desktop (education left). */}
-        <div className="flex flex-col-reverse gap-12 lg:flex-row lg:gap-16">
-          <Section title="education" className="flex-1">
-            <div className="flex flex-col gap-8">
-              {education.map((entry) => (
-                <EntryCard key={entry.org} {...entry} />
-              ))}
-            </div>
-          </Section>
+        <Section title="experience" className="flex-1">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-1">
+            {experience.map((entry) => (
+              <EntryCard key={entry.org} {...entry} />
+            ))}
+          </div>
+        </Section>
 
-          <Section title="experience" className="flex-1">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-1">
-              {experience.map((entry) => (
-                <EntryCard key={entry.org} {...entry} />
-              ))}
-            </div>
-          </Section>
-        </div>
-
-        <Section title="would love to talk!">
+        <Section title="contacts">
           <ContactList contacts={contacts} />
         </Section>
       </div>
