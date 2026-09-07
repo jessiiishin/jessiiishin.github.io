@@ -2,7 +2,11 @@
 // imported so Vite fingerprints them and rewrites the URL for the production build.
 import carbonchainImg from "../assets/project-images/carbonchain/card.png";
 import chewcheckImg from "../assets/project-images/chewcheck/card.PNG";
+import mosquitoImg from "../assets/project-images/mosquito-simulator/card.png";
 import munchymunchyImg from "../assets/project-images/munchymunchy/card.png";
+import swatchImg from "../assets/project-images/swatch-color-classification/card.png";
+import parafishImg from "../assets/project-images/parafish/card.png";
+import smartDocsImg from "../assets/project-images/smart-docs/card.png";
 
 export type ProjectDate = {
   year: number;
@@ -14,6 +18,9 @@ export type ProjectLink = {
   url: string;
 };
 
+/** Which edge of the image stays put when the card crops it to 370:205. */
+export type ImgAnchor = "top" | "center" | "bottom";
+
 export type Project = {
   title: string;
   desc: string; // short blurb, shown on the card
@@ -22,6 +29,7 @@ export type Project = {
   start: ProjectDate;
   end?: ProjectDate; // omit for single-month projects
   img?: string;
+  imgAnchor?: ImgAnchor; // defaults to "top"
   to?: string; // internal route to navigate to
   links?: ProjectLink[];
   featured?: boolean; // surfaced in the "featured projects" section on the home page
@@ -36,6 +44,7 @@ export const allProjects: Project[] = [
     tags: ["Full-stack", "Frontend", "Team"],
     start: { year: 2026, month: 7 },
     end: { year: 2026, month: 8 },
+    img: smartDocsImg,
     to: "/projects/smartdocs",
     links: [
       {
@@ -44,6 +53,7 @@ export const allProjects: Project[] = [
       },
       { label: "Demo Video", url: "https://youtu.be/UIklsPbtw7g" },
     ],
+    featured: true,
   },
   {
     title: "Swatch Color Classification",
@@ -51,10 +61,12 @@ export const allProjects: Project[] = [
     tech: ["Python", "TypeScript", "Gemini"],
     tags: ["Image Analysis", "Hackathon"],
     start: { year: 2026, month: 6 },
+    img: swatchImg,
     to: "/projects/swatchcolor",
     links: [
       { label: "GitHub", url: "https://github.com/elodiecollier/color-classification" },
     ],
+    featured: true,
   },
   {
     title: "Parafish",
@@ -63,8 +75,11 @@ export const allProjects: Project[] = [
     tags: ["Game Dev", "Team", "Project Lead"],
     start: { year: 2026, month: 2 },
     end: { year: 2026, month: 5 },
+    img: parafishImg,
+    imgAnchor: "bottom",
     to: "/projects/parafish",
     links: [{ label: "Itch", url: "https://brownrisdgames.itch.io/parafish" }],
+    featured: true,
   },
   {
     title: "MunchyMunchy",
@@ -74,7 +89,6 @@ export const allProjects: Project[] = [
     start: { year: 2026, month: 2 },
     img: munchymunchyImg,
     to: "/projects/munchymunchy",
-    featured: true,
     links: [{ label: "Link", url: "https://munchymunchy.tech" }],
   },
   {
@@ -86,7 +100,6 @@ export const allProjects: Project[] = [
     end: { year: 2026, month: 1 },
     img: chewcheckImg,
     to: "/projects/chewcheck",
-    featured: true,
   },
   {
     title: "Mosquito Simulator",
@@ -95,6 +108,8 @@ export const allProjects: Project[] = [
     tags: ["Game Dev", "Team"],
     start: { year: 2025, month: 9 },
     end: { year: 2025, month: 11 },
+    img: mosquitoImg,
+    imgAnchor: "bottom",
     to: "/projects/mosquitosimulator",
     links: [
       { label: "Itch", url: "https://brownrisdgames.itch.io/mosquito-simulator" },
@@ -109,7 +124,6 @@ export const allProjects: Project[] = [
     end: { year: 2025, month: 11 },
     img: carbonchainImg,
     to: "/projects/carbonchain",
-    featured: true,
     links: [
       { label: "DevPost", url: "https://devpost.com/software/carbonchain-m2hxz4" },
     ],
